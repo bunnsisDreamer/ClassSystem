@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.classsystem.classsystem.mbg.mapper.CourseDao">
+
+    <resultMap id="course" type="com.classsystem.classsystem.mbg.model.Course">
+        <id column="id" property="id"/>
+        <result column="course_name" property="courseName"/>
+        <result column="homework" property="homework"/>
+        <result column="useid" property="userId"/>
+        <result column="exist" property="exist"/>
+        <result column="course_intro" property="courseIntro"/>
+        <result column="add_time" property="addTime"/>
+        <result column="sign_in_time" property="signInTime"/>
+
+    </resultMap>
+
+    <sql id="course_columns">
+      id,course_name,homework,user_id,exist,course_intro,addtime
+    </sql>
+
+    <insert id="releaseCourse" parameterType="com.classsystem.classsystem.domain.dto.CourseReleaseDto" keyProperty="id" useGeneratedKeys="false">
+        insert into course(course_name,user_id,course_intro)
+        VALUES (#{courseName},#{userId},#{courseIntro})
+    </insert>
+
+    <update id="updateCourse" parameterType="com.classsystem.classsystem.domain.dto.CourseUpdateDto">
+        update course
+        set course_name=#{courseName},course_intro=#{courseIntro},homework=#{homework}
+        where user_id=#{userId}
+    </update>
+
+    <update id="signInTimeCourse" parameterType="com.classsystem.classsystem.domain.dto.CourseSignInTimeDto">
+        update course
+        set sign_in_time=#{signInTime}
+        where user_id=#{userId} and course_name=#{courseName}
+    </update>
+
+
+</mapper>

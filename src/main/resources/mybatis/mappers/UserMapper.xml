@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.classsystem.classsystem.mbg.mapper.UserDao">
+
+    <resultMap id="User" type="com.classsystem.classsystem.mbg.model.User">
+        <id column="id" property="id"/>
+        <result column="password" property="password"/>
+        <result column="type" property="type"/>
+        <result column="add_time" property="addTime"/>
+        <result column="die" property="die"/>
+        <result column="username" property="username"/>
+    </resultMap>
+
+    <sql id="user_columns">
+      username,password,type,add_time,die
+    </sql>
+
+    <select id="findUserByUserName" parameterType="java.lang.String" resultType="com.classsystem.classsystem.domain.po.UserPo">
+        select *
+        from user
+        where username=#{username}
+    </select>
+
+    <insert id="registerUser" parameterType="com.classsystem.classsystem.domain.dto.UserRegisterDto" keyProperty="id" useGeneratedKeys="false">
+        insert into user(username,password,type)
+        VALUES (#{username},#{password},#{type})
+    </insert>
+
+    <delete id="deleteUser" parameterType="com.classsystem.classsystem.domain.dto.UserDeleteDto">
+        delete
+        from user
+        where username=#{username}
+    </delete>
+
+</mapper>
