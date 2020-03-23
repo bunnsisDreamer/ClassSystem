@@ -5,14 +5,11 @@ import lombok.ToString;
 
 /**
  * @author WZY
- * @create 2020/3/20
+ * @create 2020/3/23
  */
 @Data
 @ToString
-public class CourseUpdateDto {
+public class CourseSelectGetDto {
 
     private int userId;
-    private String homework;
-    private String courseName;
-
 }

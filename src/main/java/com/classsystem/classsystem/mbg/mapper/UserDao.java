@@ -1,11 +1,15 @@
 package com.classsystem.classsystem.mbg.mapper;
 
+import com.classsystem.classsystem.domain.dto.ManagementUpdateUserDto;
 import com.classsystem.classsystem.domain.dto.UserDeleteDto;
 import com.classsystem.classsystem.domain.dto.UserLoginDto;
 import com.classsystem.classsystem.domain.dto.UserRegisterDto;
 import com.classsystem.classsystem.domain.po.UserPo;
+import com.classsystem.classsystem.domain.vo.ManagementGetUserVo;
 import com.classsystem.classsystem.domain.vo.UserLoginVo;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 
 /**
@@ -21,4 +25,8 @@ public interface UserDao {
     boolean registerUser(UserRegisterDto userRegisterDto);
 
     boolean deleteUser(UserDeleteDto userDeleteDto);
+
+    List<ManagementGetUserVo> getAllUser();
+
+    boolean updateUser(ManagementUpdateUserDto managementUpdateUserDto);
 }

@@ -1,9 +1,11 @@
 package com.classsystem.classsystem.mbg.mapper;
 
-import com.classsystem.classsystem.domain.dto.CourseReleaseDto;
-import com.classsystem.classsystem.domain.dto.CourseSignInTimeDto;
-import com.classsystem.classsystem.domain.dto.CourseUpdateDto;
+import com.classsystem.classsystem.domain.dto.*;
+import com.classsystem.classsystem.domain.vo.CourseGetVo;
+import com.classsystem.classsystem.domain.vo.CourseSelectGetVo;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author WZY
@@ -17,4 +19,11 @@ public interface CourseDao {
     boolean updateCourse(CourseUpdateDto courseUpdateDto);
 
     boolean signInTimeCourse(CourseSignInTimeDto courseSignInTimeDto);
+
+    List<CourseGetVo> getCourseByUserId(Integer userId);
+
+    List<CourseGetVo> getAllCourse();
+
+    List<CourseSelectGetVo> getSelectCourse(CourseSelectGetDto courseSelectGetDto);
+
 }

@@ -3,7 +3,6 @@ package com.classsystem.classsystem.controller;
 import com.classsystem.classsystem.domain.dto.UserDeleteDto;
 import com.classsystem.classsystem.domain.dto.UserRegisterDto;
 import com.classsystem.classsystem.domain.dto.UserLoginDto;
-import com.classsystem.classsystem.domain.po.UserPo;
 import com.classsystem.classsystem.domain.vo.UserLoginVo;
 import com.classsystem.classsystem.service.UserService;
 import com.classsystem.classsystem.utils.response.Response;
@@ -29,6 +28,7 @@ public class UserController {
         if (userService.loginUser(userLoginDto).getPassword().equals(userLoginDto.getPassword())) {
             userLoginVo.setCode(200);
             userLoginVo.setUserId(userService.loginUser(userLoginDto).getId());
+            userLoginVo.setType(userService.loginUser(userLoginDto).getType());
             userLoginVo.setMassage("ok");
         } else {
             userLoginVo.setCode(401);

@@ -25,7 +25,7 @@
 
     <update id="updateCourse" parameterType="com.classsystem.classsystem.domain.dto.CourseUpdateDto">
         update course
-        set course_name=#{courseName},course_intro=#{courseIntro},homework=#{homework}
+        set course_name=#{courseName},homework=#{homework}
         where user_id=#{userId}
     </update>
 
@@ -35,5 +35,21 @@
         where user_id=#{userId} and course_name=#{courseName}
     </update>
 
+    <select id="getCourseByUserId" parameterType="java.lang.Integer" resultType="com.classsystem.classsystem.domain.po.CoursePo">
+        select id,course_name,homework,user_id
+        from course
+        where user_id=#{userId}
+    </select>
+
+    <select id="getAllCourse" resultType="com.classsystem.classsystem.domain.po.CoursePo">
+        select id,course_name,homework,user_id
+        from course
+    </select>
+
+    <select id="getSelectCourse" resultType="com.classsystem.classsystem.domain.po.CoursePo">
+        select course.id,course.course_name,course.homework,course.user_id,course.course_intro,course.sign_in_time
+        from course,select_course
+        where course.id=select_course.course_id and select_course.user_id=#{userId}
+    </select>
 
 </mapper>

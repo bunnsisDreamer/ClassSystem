@@ -3,16 +3,13 @@ package com.classsystem.classsystem.domain.dto;
 import lombok.Data;
 import lombok.ToString;
 
-import java.util.Date;
-
 /**
  * @author WZY
- * @create 2020/3/22
+ * @create 2020/3/23
  */
 @ToString
 @Data
-public class CourseSignInTimeDto {
+public class CourseSelectDto {
     private int userId;
-    private Date signInTime;
-    private String courseName;
+    private int courseId;
 }

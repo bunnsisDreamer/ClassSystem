@@ -1,7 +1,10 @@
 package com.classsystem.classsystem.mbg.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +12,9 @@ import java.util.Date;
  * @create 2020/3/19
  */
 @Data
-public class Course {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Course implements Serializable {
 
     private int id;
     private String courseName;

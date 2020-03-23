@@ -7,10 +7,13 @@ spring:
     url: jdbc:mysql://localhost:3306/class_system?useUnicode=true&useSSL=false&serverTimezone=GMT&useOldAliasMetadataBehavior=true
     username: root
     password: 123456
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
 
 mybatis:
   mapper-locations: classpath:mybatis/mappers/*.xml
-
 
 
 logging:

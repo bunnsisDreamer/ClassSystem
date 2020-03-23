@@ -32,4 +32,15 @@
         where username=#{username}
     </delete>
 
+    <select id="getAllUser" resultType="com.classsystem.classsystem.domain.po.UserPo">
+        select *
+        from user
+    </select>
+
+    <update id="updateUser" parameterType="com.classsystem.classsystem.domain.dto.ManagementUpdateUserDto">
+        update user
+        set username=#{username},password=#{password},type=#{type}
+        where id=#{Id}
+    </update>
+
 </mapper>

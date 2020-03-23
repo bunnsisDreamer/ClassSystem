@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.classsystem.classsystem.mbg.mapper.SelectCourseDao">
+
+    <resultMap id="selectCourse" type="com.classsystem.classsystem.mbg.model.SelectCourse">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="course_id" property="courseId"/>
+
+    </resultMap>
+
+    <sql id="select_course_columns">
+      id,course_id,user_id
+    </sql>
+
+    <insert id="selectCourse" parameterType="com.classsystem.classsystem.domain.dto.CourseSelectDto" keyProperty="id" useGeneratedKeys="false">
+        insert into select_course(course_id,user_id)
+        VALUES (#{courseId},#{userId})
+    </insert>
+
+</mapper>

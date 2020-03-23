@@ -5,15 +5,14 @@ import lombok.ToString;
 
 /**
  * @author WZY
- * @create 2020/3/22
+ * @create 2020/3/23
  */
 @ToString
 @Data
-public class UserLoginVo {
-
-    private int userId;
-    private int code;
-    private String massage;
+public class ManagementGetUserVo {
+    private String username;
+    private String password;
     private int type;
+    private int id;
 
 }
